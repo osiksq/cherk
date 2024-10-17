@@ -1,46 +1,38 @@
-class Student:
-
-    def __init__(self, name, age=15):
-        self.age = age
+class Kis:
+    def __init__(self, name, age, species):
         self.name = name
-        print('Hi!')
-        Student.count_of_student += 1
+        self.age = age
+        self.species = species
 
-        def __str__(self):
-            return f'Я {self.name}, Мне {self.age} лет'
+    def voice(self):
+        if self.species == "кіт":
+            print(f"{self.name} каже: Мяу!")
+        elif self.species == "собака":
+            print(f"{self.name} каже: Гав!")
+        else:
+            print(f"{self.name} видає незнайомий звук")
 
-        def __del__(self):
-            print(f'Я {self.name}, я пошел')
-            Student.count_of_student -= 1
+    def play(self):
+        print(f"{self.name} грається")
 
+    def eat(self, food):
+        print(f"{self.name} їсть {food}")
 
-        #def info(self):
-            #print(f'Я {self.name}, Мне {self.age}, лет')
+    def grow(self, delta=1):
+        self.age += delta
+        print(f"{self.name} став(ла) старшим(ою) на {delta} рік/роки! Тепер йому/їй {self.age} років.")
 
+cat = Kis(name="Мурка", age=3, species="кіт")
+dog = Kis(name="Бобик", age=5, species="собака")
 
+cat.voice()
+dog.voice()
 
+cat.play()
+dog.play()
 
+cat.eat("рибу")
+dog.eat("м'ясо")
 
-        def grow(self, delta=1):
-            if self.age + delta > 100:
-                print('Error Age')
-                return
-            self.age += delta
-
-
-
-
-
-print(Student.count_of_student)
-
-Anton = Student(name='Anton')
-print(Anton.age)
-Anton.grow()
-Kirill = Student(name='Kirill', age=17)
-print(Kirill.age)
-
-print(Student.count_of_student)
-
-print(Kirill)
-print(Anton)
-
+cat.grow(2)
+dog.grow(4)
